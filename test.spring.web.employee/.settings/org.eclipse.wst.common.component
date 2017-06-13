@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="test.spring.web.employee">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/resources"/>
+        <wb-resource deploy-path="/WEB-INF/lib" source-path="/target/dependency"/>
+        <property name="context-root" value="test.spring.web.employee"/>
+        <property name="java-output-path" value="/test.spring.web.employee/target/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,96 @@
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<span class="lead">Create/Update Employee</span>
+	</div>
+	<div class="row">
+		<div class="col-md-8">
+			<label class="col-md-2 control-lable" for="firstName">First
+				Name</label>
+			<div class="col-md-6">
+				<input type="text" id="firstName"
+					ng-model="currentEmployee.firstName" class="input-sm"
+					placeholder="Enter your first name..." />
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<label class="col-md-2 control-lable" for="lastName">Last
+				Name</label>
+			<div class="col-md-6">
+				<input type="text" id="lastName" ng-model="currentEmployee.lastName"
+					class="input-sm" placeholder="Enter your last name..." />
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<label class="col-md-2 control-lable" for="address">Address</label>
+			<div class="col-md-6">
+				<input type="text" id="address" ng-model="currentEmployee.address"
+					class="input-sm" placeholder="Enter your address..." />
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-8">
+			<label class="col-md-2 control-lable" for="email">Email</label>
+			<div class="col-md-6">
+				<input type="text" id="email" ng-model="currentEmployee.mail"
+					class="input-sm" placeholder="Enter your email..." />
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-2">
+			<h3>Certificates</h3>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<ul>
+				<li ng-repeat="certificate in currentEmployee.certificates">
+					<div ng-click="currentCertificate=certificate">{{certificate}}</div>
+				</li>
+			</ul>
+		</div>
+		<div class="col-md-6">
+			<label class="col-md-2 control-lable" for="certificateName">Name</label>
+			<div class="col-md-4">
+				<input type="text" id="certificateName"
+					ng-model="createdCertificate.name" class="input-sm"
+					placeholder="Enter your certificate name..." />
+			</div>
+			<label class="col-md-2 control-lable" for="certificateType">Type</label>
+			<div class="col-md-4">
+				<input type="text" id="certificateType"
+					ng-model="createdCertificate.type" class="input-sm"
+					placeholder="Enter your certificate type..." />
+			</div>
+			<div class="col-md-6">
+				<button type="button" ng-click="addCertificate()"
+					class="btn btn-default pull-right">Add</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-6">
+			<button type="button" ng-click="deleteCertificate()"
+				class="btn btn-default pull-right">Delete</button>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+			<button type="button" ng-click="saveEmployee()"
+				class="btn btn-default pull-left">Save Employee</button>
+		</div>
+	</div>
+
+</div>

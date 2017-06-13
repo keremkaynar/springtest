@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="webEmployeeTestApp" lang="en">
+<head>
+<title>Web Employee Test</title>
+<base href="/test.spring.web.employee/" />
+<link rel="stylesheet"
+	href="/test.spring.web.employee/node_modules/bootstrap/dist/css/bootstrap.min.css">
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/angular/angular.js"></script>
+<script src="node_modules/angular-route/angular-route.min.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="components/pages/app.js"></script>
+<script src="components/pages/createupdateemployeecontroller.js"></script>
+<script src="components/pages/showemployeescontroller.js"></script>
+<script src="components/pages/employeeservices.js"></script>
+</head>
+
+<body>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="generic-container">
+				<div ng-view></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
