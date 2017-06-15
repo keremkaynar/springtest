@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="springBootWebEmployeeTestApp" lang="en">
+<head>
+<title>Spring Boot - Web Employee Test</title>
+<script src="node_modules/systemjs/dist/system.js"></script>
+<script>
+SystemJS.config({
+	  map: {
+	    @angular: '/node_modules/@angular/',
+	    bootstrap: '/bootstrap/dist/',
+	    appjs: 'components/pages/',
+	    appcss: 'components/css/'
+	  }
+	});
+SystemJS.config({
+	  baseURL: '/test.spring.boot.web.employee'
+	});
+SystemJS.import('bootstrap/css/bootstrap.min.css');
+SystemJS.import('bootstrap/js/bootstrap.min.js');
+SystemJS.import('appjs/main.ts');
+</script>
+<body>
+	<my-app></my-app>
+</body>
+</html>
