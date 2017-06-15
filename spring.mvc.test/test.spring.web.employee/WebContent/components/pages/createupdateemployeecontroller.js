@@ -27,38 +27,32 @@ angular
 							}
 
 							$scope.saveEmployee = function() {
-								if ($scope.currentEmployee) {
-									if ($scope.update == true) {
-										EmployeeServices
-												.updateEmployee(
-														$scope.currentEmployee)
-												.then(
-														function(response) {
-															console.log("Save (Update) employee: "+response);
-														},
-														function(errResponse) {
-															console
-																	.error('Error while saving employee');
-															deferred
-																	.reject(errResponse);
-														});
-									}
-									else
-									{
-										EmployeeServices
-										.addEmployee(
-												$scope.currentEmployee)
-										.then(
-												function(response) {
-													console.log("Save (Create) employee: "+response);
-												},
-												function(errResponse) {
-													console
-															.error('Error while saving employee');
-													deferred
-															.reject(errResponse);
-												});
-									}
+								if ($scope.update == true) {
+									EmployeeServices
+									.updateEmployee(
+											$scope.currentEmployee)
+											.then(
+													function(response) {
+														console.log("Save (Update) employee: "+response);
+													},
+													function(errResponse) {
+														console
+														.error('Error while saving employee');
+													});
+								}
+								else
+								{
+									EmployeeServices
+									.addEmployee(
+											$scope.currentEmployee)
+											.then(
+													function(response) {
+														console.log("Save (Create) employee: "+response);
+													},
+													function(errResponse) {
+														console
+														.error('Error while saving employee');
+													});
 								}
 								$location.path("/showemployees");
 							}

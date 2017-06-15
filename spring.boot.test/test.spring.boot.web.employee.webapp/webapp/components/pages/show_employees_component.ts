@@ -1,10 +1,9 @@
 import {Component} from "@angular/core";
 import {Router} from "@angular/router";
-import {EmployeeServices} from "components/pages/employee_services";
+import {EmployeeServices} from "appjs/employee_services";
 
 @Component({
-	selector: 'show-employees',
-	templateUrl: 'components/templates/show_employees_component.hmtl',
+	templateUrl: 'apptemplates/show_employees_component.html',
 	providers: [EmployeeServices]
 })
 
