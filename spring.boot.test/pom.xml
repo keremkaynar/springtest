@@ -18,6 +18,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 	<modules>
 		<module>test.spring.boot.web.employee.dao</module>
 		<module>test.spring.boot.web.employee.webapp</module>
+		<module>test.spring.boot.web.employee.product</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
@@ -46,6 +47,7 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 							<overWriteReleases>false</overWriteReleases>
 							<overWriteSnapshots>false</overWriteSnapshots>
 							<overWriteIfNewer>true</overWriteIfNewer>
+							<excludeScope>provided</excludeScope>
 							<excludeTransitive>false</excludeTransitive>
 						</configuration>
 					</execution>

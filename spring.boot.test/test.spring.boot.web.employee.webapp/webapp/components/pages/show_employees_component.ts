@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {EmployeeServices} from "appjs/employee_services";
 
@@ -7,7 +7,7 @@ import {EmployeeServices} from "appjs/employee_services";
 	providers: [EmployeeServices]
 })
 
-export class ShowEmployeesComponent {
+export class ShowEmployeesComponent implements OnInit {
 	
 	public employees: [];
 
@@ -46,5 +46,8 @@ export class ShowEmployeesComponent {
 			});
 		}
 	}
-	getAllEmployees();
+	
+	ngOnInit() {
+		getAllEmployees();
+	}
 }

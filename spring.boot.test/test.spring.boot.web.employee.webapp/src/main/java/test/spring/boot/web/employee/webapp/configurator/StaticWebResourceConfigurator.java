@@ -9,6 +9,6 @@ public class StaticWebResourceConfigurator extends WebMvcConfigurerAdapter {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/**").addResourceLocations("/webapp/");
+		registry.addResourceHandler("/**").addResourceLocations("/", "/components/templates/");
 	}
 }

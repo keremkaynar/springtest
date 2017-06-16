@@ -4,10 +4,10 @@
 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>test.spring.boot.web.employee</groupId>
-	<artifactId>test.spring.boot.web.employee.webapp</artifactId>
+	<artifactId>test.spring.boot.web.employee.product</artifactId>
 	<packaging>jar</packaging>
 	<version>1.0-SNAPSHOT</version>
-	<name>test.spring.boot.web.employee.webapp</name>
+	<name>test.spring.boot.web.employee.product</name>
 	<parent>
 		<groupId>test.spring.boot.web.employee</groupId>
 		<artifactId>test.spring.boot.web.employee.parent</artifactId>
@@ -15,31 +15,33 @@ http://maven.apache.org/maven-v4_0_0.xsd">
 	</parent>
 	<dependencies>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>test.spring.boot.web.employee</groupId>
+			<artifactId>test.spring.boot.web.employee.webapp</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>test.spring.boot.web.employee</groupId>
 			<artifactId>test.spring.boot.web.employee.dao</artifactId>
 			<version>1.0-SNAPSHOT</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
-		<resources>
-            <resource>
-                <directory>${basedir}/resources</directory>
-                <includes>
-                    <include>**/**</include>
-                </includes>
-            </resource>
-            <resource>
-                <directory>${basedir}/webapp</directory>
-                <targetPath>META-INF/resources</targetPath>
-                <includes>
-                    <include>**/**</include>
-                </includes>
-            </resource>
-        </resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring-boot.version}</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+						<configuration>
+							<mainClass>test.spring.boot.web.employee.webapp.core.SpringBootWebEmployeeApplication</mainClass>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
 	</build>
 </project>

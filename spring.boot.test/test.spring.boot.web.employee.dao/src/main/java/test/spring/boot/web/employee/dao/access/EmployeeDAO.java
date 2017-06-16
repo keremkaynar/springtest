@@ -2,9 +2,12 @@ package test.spring.boot.web.employee.dao.access;
 
 import java.util.List;
 
+import javax.persistence.EntityManagerFactory;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Repository;
 
 import test.spring.boot.web.employee.dao.model.Employee;
@@ -13,6 +16,14 @@ import test.spring.boot.web.employee.dao.model.Employee;
 public class EmployeeDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
+
+	@Bean
+	public SessionFactory getSessionFactory(EntityManagerFactory entityManagerFactory) {
+		if (entityManagerFactory.unwrap(SessionFactory.class) == null) {
+			throw new NullPointerException("entitymanagerfactory is not a hibernate factory");
+		}
+		return entityManagerFactory.unwrap(SessionFactory.class);
+	}
 
 	public void setSessionFactory(SessionFactory sf) {
 		this.sessionFactory = sf;
