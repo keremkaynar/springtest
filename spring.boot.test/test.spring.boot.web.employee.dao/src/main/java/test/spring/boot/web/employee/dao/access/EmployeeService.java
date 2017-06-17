@@ -20,17 +20,17 @@ public class EmployeeService {
 	}
 
 	@Transactional
-	public void addEmployee(Employee employee) {
-		employeeDao.addEmployee(employee);
+	public Integer addEmployee(Employee employee) {
+		return employeeDao.addEmployee(employee);
 	}
 
 	@Transactional
-	public void updateEmployee(Employee employee) {
-		employeeDao.updateEmployee(employee);
+	public Integer updateEmployee(Employee employee) {
+		return employeeDao.updateEmployee(employee);
 	}
 
 	@Transactional
-	public void deleteEmployee(int employeeId) {
-		employeeDao.deleteEmployee(employeeId);
+	public Integer deleteEmployee(int employeeId) {
+		return employeeDao.deleteEmployee(employeeId);
 	}
 }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src/main/java"/>
-	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="src" output="target/resources" path="resources"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/test.spring.boot.web.employee.dao"/>
 	<classpathentry kind="lib" path="target/dependency/spring-boot-starter-web-1.5.4.RELEASE.jar"/>

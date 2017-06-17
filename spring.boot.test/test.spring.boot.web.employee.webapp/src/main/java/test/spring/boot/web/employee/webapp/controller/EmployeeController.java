@@ -25,17 +25,17 @@ public class EmployeeController {
 	}
 
 	@RequestMapping(value = "/addemployee", method = RequestMethod.POST, headers = "Accept=application/json")
-	public void addEmployee(@RequestBody Employee employee) {
-		employeeService.addEmployee(employee);
+	public Integer addEmployee(@RequestBody Employee employee) {
+		return employeeService.addEmployee(employee);
 	}
 
 	@RequestMapping(value = "/updateemployee", method = RequestMethod.PUT, headers = "Accept=application/json")
-	public void updateEmployee(@RequestBody Employee employee) {
-		employeeService.updateEmployee(employee);
+	public Integer updateEmployee(@RequestBody Employee employee) {
+		return employeeService.updateEmployee(employee);
 	}
 
 	@RequestMapping(value = "/deleteemployee/{id}", method = RequestMethod.DELETE, headers = "Accept=application/json")
-	public void deleteEmployee(@PathVariable("id") int id) {
-		employeeService.deleteEmployee(id);
+	public Integer deleteEmployee(@PathVariable("id") int id) {
+		return employeeService.deleteEmployee(id);
 	}
 }

@@ -16,13 +16,18 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr *ngFor="#employee in employees" (click)="currentEmployee=employee">
+					<tr *ngFor="let employee of employees" (click)="currentEmployee=employee">
 						<td><span>{{employee.id}}</span></td>
 						<td><span>{{employee.firstName}}</span></td>
 						<td><span>{{employee.lastName}}</span></td>
 						<td><span>{{employee.mail}}</span></td>
 						<td><span>{{employee.address}}</span></td>
-						<td><span *ngFor="#certificate in employee.certificates">{{certificate}}</span>
+						<td>
+							<table>
+								<tr *ngFor="let certificate of employee?.certificates">
+									<td>{{certificate.name}} - {{certificate.type}}</td>
+								</tr>
+							</table>
 						</td>
 					</tr>
 				</tbody>
@@ -35,9 +40,9 @@
 			<button type="button" (click)="createEmployee()"
 				class="btn btn-default pull-right">Create</button>
 			<button type="button" (click)="updateEmployee()"
-				class="btn btn-default pull-right">Update</button>	
+				class="btn btn-default pull-right">Update</button>
 			<button type="button" (click)="deleteEmployee()"
-				class="btn btn-default pull-right">Delete</button>	
+				class="btn btn-default pull-right">Delete</button>
 		</div>
 	</div>
 </div>

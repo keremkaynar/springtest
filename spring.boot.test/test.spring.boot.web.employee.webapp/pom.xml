@@ -30,11 +30,12 @@ http://maven.apache.org/maven-v4_0_0.xsd">
             <resource>
                 <directory>${basedir}/resources</directory>
                 <includes>
-                    <include>**/**</include>
+                    <include>application.properties</include>
+                    <include>log4j2.xml</include>
                 </includes>
             </resource>
             <resource>
-                <directory>${basedir}/webapp</directory>
+                <directory>${basedir}/resources/static</directory>
                 <targetPath>META-INF/resources</targetPath>
                 <includes>
                     <include>**/**</include>

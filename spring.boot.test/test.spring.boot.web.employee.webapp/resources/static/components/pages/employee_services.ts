@@ -1,4 +1,4 @@
-import {Injectable} from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/catch';
@@ -11,11 +11,10 @@ export class EmployeeServices {
 
 	private employeeForCreateUpdate = null;
 
-	constructor (private http: Http) {}
-
-	private extractData(res: Response) {
-		let body = res.json();
-		return body.data || { };
+	private http: null;
+	
+	constructor (@Inject(Http) http: Http) {
+		this.http = http;
 	}
 
 	private handleError (error: Response | any) {
@@ -31,38 +30,38 @@ export class EmployeeServices {
 	return Observable.throw(errMsg);
 	}
 
-	getAllEmployees(): Observable<[]> {
-		return http.get(REST_SERVICE_URI+"getallemployees")
-		.map(this.extractData)
+	getAllEmployees(): Observable {
+		return this.http.get(this.REST_SERVICE_URI+"getallemployees")
+		.map(res=>res.json())
 		.catch(this.handleError);
 	}
 
 	addEmployee(employee): Observable {
-		return http.post(REST_SERVICE_URI+"addemployee", employee)
-		.map(this.extractData)
+		return this.http.post(this.REST_SERVICE_URI+"addemployee", employee)
+		.map(res=>res.json())
 		.catch(this.handleError);
 	}
 
 
 	updateEmployee(employee): Observable {
-		return http.put(REST_SERVICE_URI+"updateemployee", employee)
-		.map(this.extractData)
+		return this.http.put(this.REST_SERVICE_URI+"updateemployee", employee)
+		.map(res=>res.json())
 		.catch(this.handleError);
 	}
 
 	deleteEmployee(id): Observable {
-		return http.delete(REST_SERVICE_URI+"deleteemployee/"+id)
-		.map(this.extractData)
+		return this.http.delete(this.REST_SERVICE_URI+"deleteemployee/"+id)
+		.map(res=>res.json())
 		.catch(this.handleError);
 	}
 
 	setEmployeeForCreateUpdate(employee)
 	{
-		employeeForCreateUpdate = employee;
+		this.employeeForCreateUpdate = employee;
 	}
 
 	getEmployeeForCreateUpdate()
 	{
-		return employeeForCreateUpdate;
+		return this.employeeForCreateUpdate;
 	}
 }
